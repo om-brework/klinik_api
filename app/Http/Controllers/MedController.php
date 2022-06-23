@@ -13,12 +13,8 @@ class MedController extends Controller
         $idLokasi = $request->location_id;
         $dataObat = Med::with('meds_category','meds_price')->get();
         $dataToSend = array();
-
         foreach($dataObat as $a){
-            $harga_wna = 0;
-            $harga_wni=0;
-            $id_harga_wni = 0;
-            $id_harga_wna = 0;
+
             $stock_id = 0;
             $stocks = MedsStock::where([['med_id','=',$a->id],['location_id','=',$idLokasi]])->first();
             if($stocks){
@@ -29,6 +25,10 @@ class MedController extends Controller
                 $stock = 0;
             }
             foreach($a->meds_price as $b){
+                $harga_wna = 0;
+                $harga_wni=0;
+                $id_harga_wni = 0;
+                $id_harga_wna = 0;
                 if($b->nationality_id == 1){
                     $id_harga_wni = $b->id;
                     $harga_wni = $b->retail_price;
