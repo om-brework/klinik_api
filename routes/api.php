@@ -3,6 +3,7 @@
 use App\Http\Controllers\LocationContrroller;
 use App\Http\Controllers\MedController;
 use App\Http\Controllers\medsCategoryController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
@@ -37,4 +38,5 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::post('/locationsave',[LocationContrroller::class,'save']);
     Route::post('/meds',[MedController::class,'show']);
     Route::post('/savemeds',[MedController::class,'save']);
+    Route::get('/patients',[PatientController::class,'show']);
 });

@@ -17,6 +17,7 @@ class PatientMedicalHistories extends Migration
             $table->id();
             $table->foreignid('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->string('medical_record_number');
+            $table->string('status');
             $table->foreignid('nurse_in_charge_id')->references('id')->on('users');
             $table->foreignid('doctor_in_charge_id')->references('id')->on('users');
             $table->string('date');

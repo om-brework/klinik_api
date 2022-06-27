@@ -17,7 +17,7 @@ class Patients extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('nationality');
+            $table->string('country');
             $table->foreignid('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
             $table->string('ID_type');
             $table->string('ID_number');
